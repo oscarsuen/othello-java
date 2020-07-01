@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\title{Design Project: \\ Othello With Artificial Intelligence}
+\author{Stuart Rucker \\ Daniel Stone \\ Oscar Suen\\ Vinny Kurup}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Goals}
+The goal of the project is to create a Java application where a user can play the board game Othello, or Reversi, against the computer. Othello is played by placing tiles, each with a black and white side,  on an 8x8 grid. If your move surrounds a line of opposite colored tiles, making it bound between two of your tiles, the sandwiched tiles are flipped. The goal of the game is to flip as many pieces to your color, before the board is filled. (\url{http://en.wikipedia.org/wiki/Reversi}) The computer will make decisions based on an Artificial intelligence. These decisions will manifest themselves on a GUI, resembling the real Othello board.
+
+\section{Timeline}
+We will create the GUI by 2/19. By 2/21, we will have the have logic which limits what moves the user can play. By the 2/22, we will finish the Artificial intelligence. Before  2/26, we will correct any remaining glitches and deal with the end game.
+
+\section{CPU Artificial Intelligence}
+\subsection{Data Structure}
+A tree will be made of all possible moves that can be played by both the CPU and the user. Each node will be a game state, with a pointer to all of the possible game states that could follow. After a certain depth, the tree will be stopped. Each leaf 8 nodes deep will be evaluated to see how well the CPU and user are doing. Looking the current decision, whichever part of the tree which is considered the best will determine what move CPU makes.
+\subsection{Time and Memory Efficiency}
+Let $n$ be the depth of the search tree, containing potential future game states. The number of potential moves $P$ from any given game state, can be anywhere between 0 and about 64. Initializing the tree from the start will take
+\begin{align*}
+&O(\sum_{i=1}^{n}P^i) \\
+= &O(P^n) \\
+\end{align*}
+
+However, after the first move, the same tree can be built off of. Adding another two layers of nodes (after both players have moved) will take
+\begin{align*}
+&O(P^{n-1} + P^n) \\
+= &O(P^n)
+\end{align*}
+
+The memory efficiency is similar to the time efficiency.  It would also require $O(P^n)$.  The memory efficiency is quite important here as the tree could be very big.
+\end{document}

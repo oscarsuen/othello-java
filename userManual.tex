@@ -1,0 +1,24 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\title{User's Manual: \\ Othello With Artificial Intelligence}
+\author{Stuart Rucker \\ Daniel Stone \\ Oscar Suen\\ Vinny Kurup}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Othello Rules}
+Othello, also known as Reversi, is a board game from England in the 19th century.  Each of the two players has 32 tiles, each with both a black and white face. The board is an 8x8 grid of places for those tiles to be played. The players alternate playing tiles of their color. In order for a move to be valid, the move must sandwich a row of the opposing players tiles. The "sandwich" can be vertical, horizontal, and diagonal.\\\\
+$\bullet$ o o o\\
+$\bullet$ o o o $\bullet$ (This is a valid move)\\\\
+The tiles which are sandwiched are flipped to match the color of the figurative bread of the sandwich.\\\\
+$\bullet$ $\bullet$ $\bullet$ $\bullet$ $\bullet$ (Notice how the middle white chips were flipped)\\\\
+ The goal is to have the majority of the board your color when the game ends. The game ends when neither player can play. If only one player can play, he or she should keep playing until either the game ends, or the other player can play again. 
+\section{Using the Applet}
+\subsection{Othello}
+When first launching the program, a start screen will appear. Select the depth to which the computer will look ahead. A greater depth will both make the computer take longer and play better. Depth 5 or 6 is recommended. As a user, you play black tiles. You are playing against the CPU, who plays white tiles. Click the square where you would like to play. If the game ends, a small window will come up, and the game will restart. \par
+The JMenu  on the displays how many moves you have played in the current game. The move number will increment once the CPU is done thinking. The restart and quit menu-items are self-explanatory. The "minigame" menu-item will launch Conway's game of life in a separate window. 
+\subsection{Minigame}
+Conway's game of life used to simulate cellular interactions. In each move, the array of pixels will change based on the pixels around it. Use the JComboBox to select which rules the pixels use to change their state. The sliders adjust how fast the screen updates, and for how many durations the simulation runs.
+\end{document}
